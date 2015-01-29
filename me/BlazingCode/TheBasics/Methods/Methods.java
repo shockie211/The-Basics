@@ -9,6 +9,6 @@ public class Methods
 	  
 	  public static void sendMessage(Player p, String m)
 	  {
-	    p.sendMessage(prefix + m);
+		  p.sendMessage(prefix + m);
 	  }
 }
