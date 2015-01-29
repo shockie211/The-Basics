@@ -1,0 +1,8 @@
+1) Permissions.
+2) Commands
+3) Chat 
+4) Kits
+5) Voting
+6) Broadcasting
+
+#3-6 can go in any order.
