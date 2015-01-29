@@ -1,8 +1,7 @@
-1) Permissions.
-2) Commands
-3) Chat 
-4) Kits
-5) Voting
-6) Broadcasting
+Roles:
 
-#3-6 can go in any order.
+TRE: 
+- Please Work On Player Commands:
+
+Shockie:
+- Make our onenable and ondisable nicer and use the logger to make it better.
