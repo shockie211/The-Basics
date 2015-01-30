@@ -90,10 +90,13 @@ public class AdminCommands implements CommandExecutor
 				{
 					if(receiver.isOnline() == true)
 					{
+						//Get the current time of the server.
 						int currentTime = (int) (System.currentTimeMillis() /1000);
 						
+						//Get the choosen ban time.
 						int banTime = Integer.parseInt(args[2]);
 						
+						//Combine them up, so when server reaches a certain time. UNBAN!
 						int timeToUnban = currentTime + banTime;
 						
 						Storage.banStorage.set("Ban." + receiver.getName() + ".Time", timeToUnban);
@@ -121,7 +124,40 @@ public class AdminCommands implements CommandExecutor
 			}
 		}else if(label.equalsIgnoreCase("mute"))
 		{
-			
+			if(player.hasPermission("thebasics.mute"))
+			{
+				if(args.length > 3)
+				{
+					if(receiver.isOnline() == true)
+					{
+						//Get the current time of the server.
+						int currentTime = (int) (System.currentTimeMillis() /1000);
+						
+						//Get the choosen mute time.
+						int muteTime = Integer.parseInt(args[2]);
+						
+						//Combine them up, so when server reaches a certain time. UNMUTE!
+						int timeToUnmute = currentTime + muteTime;
+						
+						Storage.muteStorage.set("Mute." + receiver.getName() + ".Time", timeToUnmute);
+						
+						try {
+							Storage.saveMutingStorage();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else
+					{
+						Methods.sendMessage(player, "The player " + ChatColor.RED + receiver.getName() + ChatColor.GOLD + " is not online!");
+					}
+				}else
+				{
+					Methods.sendMessage(player, "Please use this format: /tempban <name> <time> <reason>.");
+				}
+			}else
+			{
+				Methods.noPermMessage(player);
+			}
 		}
 		return false;
 	}

@@ -17,4 +17,12 @@ public class Storage
 		banStorage.save(banningStorage);
 	}
 	
+	static File mutingStorage = new File(pl.getDataFolder() + "BanStorage.yml");
+	public static YamlConfiguration muteStorage = YamlConfiguration.loadConfiguration(mutingStorage);
+	
+	public static void saveMutingStorage() throws IOException
+	{
+		muteStorage.save(mutingStorage);
+	}
+	
 }
