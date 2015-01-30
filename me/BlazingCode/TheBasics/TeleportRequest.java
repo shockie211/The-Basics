@@ -11,16 +11,16 @@ public class TeleportRequest
 	private final int maxWait = 20;
 
 	private String sender, target;
-	private int wait;
 
-	public TeleportRequest(String sender, String target, int wait)
+	public TeleportRequest(String sender, String target)
 	{
 		this.sender = sender;
 		this.target = target;
-		this.wait = wait;
 
 		Bukkit.getScheduler().runTaskTimer(plugin, new Runnable()
 		{
+			private int wait = maxWait;
+
 			public void run()
 			{
 				wait--;
@@ -36,10 +36,5 @@ public class TeleportRequest
 	public String getTarget()
 	{
 		return target;
-	}
-
-	public int getWait()
-	{
-		return wait;
 	}
 }

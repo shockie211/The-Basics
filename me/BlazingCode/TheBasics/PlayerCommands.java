@@ -9,15 +9,19 @@ import org.bukkit.entity.Player;
 
 public class PlayerCommands
 {
-	private Main plugin;
-
 	private ArrayList<TeleportRequest> requestList = new ArrayList<>();
-
-	private final int tickTime = 20;
-	private final int maxWait = tickTime * 20;
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
+		if (label.equalsIgnoreCase(PlayerCommand.HELP))
+		{
+			sender.sendMessage("Commands:");
+
+			for (String c : PlayerCommand.getCommands())
+			{
+				sender.sendMessage("/" + c);
+			}
+		}
 		if (label.equalsIgnoreCase(PlayerCommand.TPA) && sender instanceof Player)
 		{
 			Player player = (Player) sender;
@@ -26,8 +30,8 @@ public class PlayerCommands
 			{
 				Player reciever = Bukkit.getPlayer(args[0]);
 
-				TeleportRequest request=new TeleportRequest(player.getName(),reciever.getName(),20);
-				
+				TeleportRequest request = new TeleportRequest(player.getName(), reciever.getName());
+
 				requestList.add(request);
 
 				reciever.sendMessage(player.getName() + " has requested to teleport to you. Type /tpaccept, or /tpdeny");
@@ -39,7 +43,14 @@ public class PlayerCommands
 		{
 			Player player = (Player) sender;
 
-			if (requestList.contains(o))
+			for (TeleportRequest request : requestList)
+			{
+				if (request.getSender().equals(player.getName()))
+				{
+					player.teleport(Bukkit.getPlayer(request.getTarget()));
+					break;
+				}
+			}
 		}
 
 		return false;
