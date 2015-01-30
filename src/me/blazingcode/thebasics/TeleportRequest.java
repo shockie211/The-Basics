@@ -1,11 +1,10 @@
 package me.BlazingCode.TheBasics;
 
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 
 public class TeleportRequest
 {
-	private final Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("TheBasics");
+	Main plugin;
 
 	private final int tickTime = 20;
 	private final int maxWait = 20;
@@ -25,7 +24,7 @@ public class TeleportRequest
 			{
 				wait--;
 			}
-		}, tickTime * 1, tickTime * maxWait);
+		}, tickTime, tickTime * maxWait);
 	}
 
 	public String getSender()

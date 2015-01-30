@@ -2,6 +2,10 @@ Roles:
 
 TRE: 
 - Please Work On Player Commands:
+PCommands done so far:
+- help
+- tpa
+- tpaccept
 
 Shockie:
 - Make our onenable and ondisable nicer and use the logger to make it better.

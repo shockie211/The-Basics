@@ -3,7 +3,7 @@ package me.BlazingCode.TheBasics;
 import java.util.Arrays;
 import java.util.List;
 
-public class PlayerCommand
+public abstract class PlayerCommand
 {
 	public static final String HELP = "help";
 	public static final String TPA = "tpa";
