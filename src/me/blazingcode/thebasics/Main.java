@@ -10,11 +10,15 @@ public class Main extends JavaPlugin
 {
 	Logger logger = Logger.getLogger("TheBasics");
 
-	public void onEnable()
-	{
+        public void onEnable() {
+        	getLogger().info(ChatColor.AQUA + "The basics V1 has been enabled!")
+        	
+        } 
+	    
 	}
 
-	public void onDisable()
-	{
+	public void onDisable() {
+	    getLogger().info(ChatColor.AQUA + "The basics is being disabled!")
+	                        
 	}
 }
